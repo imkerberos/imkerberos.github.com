@@ -4,16 +4,16 @@
 
 url: http://ios-dreamer.com
 title: 码农农场
-subtitle: Kerberos' Blog
+subtitle: 种下去的是代码, 收获的是 Bug
 author: Kerberos Zhang
 simple_search: http://google.com/search
-description:
+description: Kerberos 的 Blog
+keywords: python, twisted, mongodb, git, hadoop, hbase, lua, mac, browser, html, embedded, linux, debian, iOS, Android, Objective-C, C, C++, StarCraft, NoSQL, SQLite, PostgreSQL, pylons, django, pyramid
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
 # http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
 # Additionally, %o will give you the ordinal representation of the day
-# date_format: "%Y年%m月%d"
 date_format: "%Y-%m-%d"
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
@@ -38,7 +38,7 @@ pagination_dir: blog  # Directory base for pagination URLs eg. /blog/page/2/
 recent_posts: 8       # Posts in the sidebar Recent Posts section
 excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
 titlecase: true       # Converts page and post titles to titlecase
-exclude: ["config.rb", ".gitignore", "_sass"]
+exclude: ["config.rb", ".gitignore", "_sass", "CNAME"]
 # ----------------------- #
 #   3rd Party Settings    #
 # ----------------------- #

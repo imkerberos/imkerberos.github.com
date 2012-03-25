@@ -1,5 +1,6 @@
 _site/*
 .sass_cache/*
+.sass_cache
 Thumbs.db
 .DS_Store
 !.gitkeep
