@@ -87,6 +87,9 @@ delicious_count:
 # Disqus Comments
 disqus_short_name: imkerberos
 disqus_show_comment_count: true
+disqus_aside_comment_count: 8
+disqus_aside_avatar_size: 32
+disqus_aside_comment_excerpt_length: 200
 
 # Google Analytics
 google_analytics_tracking_id:
