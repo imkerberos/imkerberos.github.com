@@ -2,6 +2,7 @@
 layout: post
 title: 开始在 GitHub 上使用 Jekyll 记录博客
 tags: 
+comments: true
 catogory: 感想
 ---
 
