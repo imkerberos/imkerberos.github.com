@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 测试 Blog 代码高亮
-tags: [Jekyll,]
+tags: [Jekyll]
 category: Test
 comments: true
 ---
