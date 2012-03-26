@@ -21,6 +21,12 @@ subscribe_rss: /atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
 email: Kerberos Zhang <kerberos.zhang@gmail.com>
+# ----------------------- #
+# Site path
+# ----------------------- #
+archives_path: /archives.html
+tags_path: /tags.html
+about_path: /about.html
 
 # ----------------------- #
 #    Jekyll & Plugins     #
