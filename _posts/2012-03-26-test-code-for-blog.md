@@ -49,6 +49,12 @@ comments: true
     <html>
         <head>
             <title> 测试 </title>
+            <script type = "text/javascript">
+                var foo = new Object ();
+                for ( a in foo ) {
+                    foo = 2;
+                }
+            </srcript>
         </head>
         <body>
             <a href="http://www.ios-dreamer.com"> 这是我的主页 </a>

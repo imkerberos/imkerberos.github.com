@@ -10,11 +10,8 @@ single: true
     <p class="meta">
       {% include post/author.html %}
       {% include post/date.html %}{{ time }}
-      {% comment %}
-      {% if updated %}{{ updated }}{% else %}{{ date }}{% endif %}
-      {% endcomment %}
       Tags: {% include post/tags.html %}
-      {% include post/categories.html %}
+      Categories: {% include post/categories.html %}
     </p>
     {% unless page.sharing == false %}
       {% include post/sharing.html %}
