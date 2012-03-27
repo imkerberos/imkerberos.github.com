@@ -122,6 +122,11 @@ Squeeze.
         # file: /etc/sysctl.conf.d/mycluster.conf
         # 缺省是 40000 65000, 扩大本地可用端口号, 注意其他服务器不要监听在这些端口号上
         net.ipv4.local_port_range = 2048 65535
+        net.ipv4.tcp_max_tw_buckets = 524288
+        net.ipv4.tcp_max_syn_backlog = 8192
+        net.ipv4.netfilter.ip_conntrack_max = 524288
+        net.ipv4.netfilter.ip_conntrack_tcp_timeout_established = 180
+        net.ipv4.netfilter.ip_conntrack_tcp_timeout_time_wait = 5
         </pre>
 
 - `/etc/defaults/*`  

@@ -11,3 +11,18 @@ Feature
 - A basic *Tag Cloud* sidebar.
 - Archives and Tags only depends `Liquid` template instead of plugin.
 - google-code-prettify for code hilight.
+
+Test
+----
+
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
+
+    ```ruby
+    require 'redcarpet'
+    markdown = Redcarpet.new("Hello World!")
+    puts markdown.to_html
+    ```
