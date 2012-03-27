@@ -117,7 +117,7 @@ function renderDeliciousLinks(items) {
 }
 
 function hilightCode () {
-    $('pre').addClass('prettyprint');
+    /* $('pre').addClass('prettyprint'); */
     prettyPrint ();
 }
 
