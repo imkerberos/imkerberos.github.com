@@ -1,6 +1,9 @@
 ---
 layout: post
 title: 在 Debian 6.0 上安装 nginx + nginx-gridfs + mongodb
+desc: 网站或者论坛对于用户上传的图片管理比较麻烦, 尤其是在 Web 具有横向扩展能力的情况下.
+    但存把图片存放在 web 服务器的某个目录先已经不能满足各台 Web 主机同步要求. 这种情况下
+    使用共享式文件系统或者分布式文件系统是一个比较好的选择.
 tags: [Debian, MongoDB, Nginx]
 ---
 
