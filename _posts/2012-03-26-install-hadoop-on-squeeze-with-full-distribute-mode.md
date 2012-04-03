@@ -36,7 +36,7 @@ category: Lesson
 ### Linux 发行版 ###
 
 相对于 Unbuntu, Redhat, SUSE 等发行版来说, 我更钟爱 [Debian][], 所以大部分服务器我都是在
-Debian 上安装的. 截至到本文发布时间为止 (2012 年 3 月 26), Debian 的版本是 6.0.3, 版本代号
+Debian 上安装的. 截至到本文发布时间为止 (2012 年 3 月 26), Debian 的版本是 6.0.4, 版本代号
 Squeeze.
 
 ### CDH3 安装方式 ###
