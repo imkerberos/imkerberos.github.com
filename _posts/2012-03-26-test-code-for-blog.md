@@ -2,6 +2,7 @@
 layout: post
 title: 测试 Blog 代码高亮
 tags: [Jekyll]
+desc: 测试 google-code-prettify 的代码着色效果.
 category: Test
 comments: true
 ---

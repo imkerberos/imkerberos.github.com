@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 在 Debian 6.0 (Squeeze) 上完全分布式安装 Hadoop 集群系统
+desc: 找遍网络文档, 很少有全部的完全使用分布式安装 Hadoop 集群系统的文章. 网络上能找到的文章大部分是基于简单的伪分布式安装的文档. 今天要在生产环境中建立集群系统, 把过程写下来分享一下.
 tags: [Debian, Hadoop, HBase]
-comments: true
 category: Lesson
 ---
 
