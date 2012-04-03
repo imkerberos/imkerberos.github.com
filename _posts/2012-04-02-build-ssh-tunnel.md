@@ -1,6 +1,7 @@
 ---
 layout: post
 title: SSH 隧道技术简介(转评)
+description: 测试文摘模式, 看一下如何
 tags: [SSH, XGFW]
 ---
 
