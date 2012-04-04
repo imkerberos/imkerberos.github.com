@@ -7,6 +7,8 @@ category: Test
 comments: true
 ---
 
+{:toc}
+
 以下是 Python 代码:
 
     class AdView (object):
@@ -47,6 +49,9 @@ comments: true
 
 以下是 HTML 代码
 
+{:title="测试 HTML 代码"}
+
+{:.lang-html}
     <html>
         <head>
             <title> 测试 </title>

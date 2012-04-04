@@ -6,6 +6,8 @@ tags: [Debian, Hadoop, HBase]
 category: tutorial
 ---
 
+{:toc}
+
 背景
 ----
 
