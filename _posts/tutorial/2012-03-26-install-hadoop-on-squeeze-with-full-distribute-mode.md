@@ -51,7 +51,7 @@ Squeeze.
 集群中的每台机器先安装好基本的 Debian 系统, 需要说明的是, Hadoop 最
 好还是使用 **x86\_64** 的系统.
 
-安装过程
+部署规划
 --------
 
 ### 安装的软件 ###
@@ -70,19 +70,26 @@ Squeeze.
         Hostname 必然要同步集群中所有机器的 hosts 文件, 而这个文件的修改必须要 root 权限. 在同
         步上不方便. 而且每次 hosts 修改都要同步到集群中的所有机器上, 为了方便管理集群, 在集群
         内部建立了自己使用的 DNS 服务器, dnsmasq 是一个比较好的选择. 安装指令:
+
             #apt-get install dnsmasq
+
     - openssh-server  
         管理集群内的机器需要, 服务端口号使用默认的 **22**, 不要修改成其他的端口. 因为 Hadoop 的
         管理指令自动连接 **22** 端口, 如果修改了这个端口号, 必须要修改 Hadoop 的管理脚本. 另外,
         为了避免在使用 Hadoop 管理脚本时连接其他机器时的登陆密码输入, 需要使用 *ssh-keygen* 命
         令建立统一的 SSH 密钥对.
+
             #apt-get install openssh-server openssh-client
-    - ntpdate  
+
+    - ntp & ntpdate  
         对于集群来说, 各个节点的时间必须保持一致. 很多情况下, 集群中的各个节点在统一的 VLAN 中,
         可能无法访问外网, 所以有一个时间同步服务器是必要的.
-            #apt-get install ntpdate
+
+            #apt-get install ntpdate ntp
+
     - rsync  
         Hadoop 管理脚本需要使用 rsync 命令来同步集群的配置, 这个软件是必须的.
+
             #apt-get install rsync
 
 - 其他辅助性的软件
@@ -139,18 +146,53 @@ Squeeze.
         ulimit -Hu unlimited
         ulimit -Su unlimited
 
-### 节点部署
+### 节点部署规划
 
-生产环境中的机器共 8 台, 主要角色如下划分:
+#### 服务器组件部署规划
+
+生产环境中的机器共 9 台, 主要角色如下划分:
 
 - Hadoop Jobtracker, Hadoop NameNode 与 HBase Master 2 台, 一台作为主节点, 另外一台作为备份节点.
 - Hadoop Tasktracker, Hadoop DataNode 与 HBase RegionServer 5 台
-- 应用服务器 1 台
+- 应用服务器, DNS 服务器 与 时间同步服务器 共用 2 台
 
-具体的分配表如下
+各物理节点的组件分配如下
 
-组件名称 | 服务器1 | 服务器2 | 服务器3  | 服务器4 | 服务器5 | 服务器6 | 服务器7 | 服务器8
-:-------|:-------:|:-------:|:--------:|:----:--:|:-------:|:-------:|:-------:|:------:
-Jobtracker| OK      |   OK    |   OK     |    OK   | OK      | OK      | OK      | OK     
+组件名称                | node1     | node2     | node3     | node4     | node5     | node6     | node7     | node8     | node9 
+----------------------: |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:--------:
+DNS Server              | &radic;   | &radic;   |           |           |           |           |           |           |
+NTP Server [^1]         | &radic;   | &radic;   | &radic;   | &radic;   | &radic;   | &radic;   | &radic;   | &radic;   | &radic;
+NameNode                |           |           | &radic;   | &radic;   |           |           |           |           |
+DataNode                |           |           |           |           | &radic;   | &radic;   | &radic;   | &radic;   | &radic;
+JobTracker              |           |           | &radic;   | &radic;   |           |           |           |           |
+TaskTracker             |           |           |           |           | &radic;   | &radic;   | &radic;   | &radic;   | &radic;
+HMaster                 |           |           | &radic;   | &radic;   |           |           |           |           |
+HRegionSerfer           |           |           |           |           | &radic;   | &radic;   | &radic;   | &radic;   | &radic;
+ZooKeeper               | &radic;   | &radic;   | &radic;   | &radic;   | &radic;   | &radic;   | &radic;   | &radic;   | &radic;
+HBase ThriftServer [^2] | &radic;   | &radic;   |           |           |           |           |           |           |
+
+#### IP 地址表
+
+:----------|-----------:
+节点名称   |  IP 地址
+:----------|-----------:
+node1      | 192.168.0.1
+node2      | 192.168.0.2
+node3      | 192.168.0.3
+node4      | 192.168.0.4
+node5      | 192.168.0.5
+node6      | 192.168.0.6
+node7      | 192.168.0.7
+node8      | 192.168.0.8
+node9      | 192.168.0.9
+
+安装过程
+--------
+
+常见问题
+--------
+
+[^1]: 每个节点配置一个 NTP Server, node1 和 node2 的 Server 与外网时间服务器连接, 作为网内 node3 - node9 的服务器.
+[^2]: 为了保证无单点故障, 所以多台 ThriftServer 是非常有必要的.每个应用服务器节点连接自身的 ThriftServer 与 HBase 通信.
 
 [Debian]: http://www.debian.org "Debian"

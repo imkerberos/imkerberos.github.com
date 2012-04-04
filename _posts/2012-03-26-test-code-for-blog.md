@@ -69,10 +69,21 @@ comments: true
         foo = 2;
     }
 
+{: #para-one}
+
+> 测试 github 能否高亮
+{:title="The blockquote title"}
+{: #myid}
+
+{:.c}
+    int main() {
+        printf ("Hello World!\n");
+    }
 
 以下是 $\exp(-\frac{x^2}{2})$ 代码:
 
-<pre class="lang-tex">
+{:title="Code block title"}
+{: .latex}
     $$
     \begin{align*}
       & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
@@ -89,7 +100,6 @@ comments: true
         \end{array} \right)
     \end{align*}
     $$
-</pre>
 
 和效果
 
