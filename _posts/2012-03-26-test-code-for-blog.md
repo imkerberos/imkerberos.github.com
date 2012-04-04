@@ -72,6 +72,7 @@ comments: true
 
 以下是 $\exp(-\frac{x^2}{2})$ 代码:
 
+<pre class="lang-tex">
     $$
     \begin{align*}
       & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
@@ -88,6 +89,7 @@ comments: true
         \end{array} \right)
     \end{align*}
     $$
+</pre>
 
 和效果
 
