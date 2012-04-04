@@ -75,15 +75,15 @@ comments: true
 {:title="The blockquote title"}
 {: #myid}
 
-{:.c}
+{:.lang-c}
     int main() {
         printf ("Hello World!\n");
     }
 
 以下是 $\exp(-\frac{x^2}{2})$ 代码:
+{:title="测试 Tex 代码"}
 
-{:title="Code block title"}
-{: .latex}
+{:.lang-tex}
     $$
     \begin{align*}
       & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)

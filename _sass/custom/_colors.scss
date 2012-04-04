@@ -19,8 +19,11 @@ $page-bg: #333 !default;
 
 /* To use the light Solarized highlighting theme uncomment the following line */
 //$solarized: light;
+$solarized: dark;
 
 /* If you want to tweak the Solarized colors you can do that here */
+$base03: #252525;
+$base02: #333333;
 //$base03:          #002b36; //darkest blue
 //$base02:          #073642; //dark blue
 //$base01:          #586e75; //darkest gray

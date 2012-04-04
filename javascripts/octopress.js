@@ -115,12 +115,7 @@ function renderDeliciousLinks(items) {
   output += "</ul>";
   $('#delicious').html(output);
 }
-/*
-function hilightCode () {
-    $('pre').addClass('prettyprint');
-    prettyPrint ();
-}
-*/
+
 $.domReady(function() {
   testFeatures();
   wrapFlashVideos();
@@ -128,9 +123,6 @@ $.domReady(function() {
   addCodeLineNumbers();
   getNav();
   addSidebarToggler();
-  /*
-  hilightCode ();
-  */
 });
 
 // iOS scaling bug fix
