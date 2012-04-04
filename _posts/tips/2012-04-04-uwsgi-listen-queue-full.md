@@ -1,6 +1,6 @@
 ---
 layout: post
-title: uwsgi listen queue 队列溢出的问题
+title: uWSGI listen queue 队列溢出的问题
 tags: [Debian, Python]
 catgory: 小技巧
 ---
@@ -10,13 +10,15 @@ catgory: 小技巧
 {: title = "uWSGI 启动 Python应用"}
 
 {: .lang-sh}
-    #usr/local/bin/uwsgi --paste config:/home/kerberos/testapp/production.ini --socket :50%(process_num)02d -H /home/kerberos/sandbox --workers 4 --master --reload-mercy 64 --max-requests 8192 --listen 2048 --socket-timeout 30 --disable-logging 
+    #usr/local/bin/uwsgi --paste config:/home/kerberos/testapp/production.ini \
+    --socket :5000 -H /home/kerberos/sandbox --workers 4 --master \
+    --reload-mercy 64 --max-requests 8192 --listen 2048 --socket-timeout 30 --disable-logging 
 
 但是当查看 uwsgi 的日志时发现错误:
 
 {: title = "uWSGI 错误日志"}
 
-*** uWSGI listen queue of socket 4 full !!! (129/128) ***
+    *** uWSGI listen queue of socket 4 full !!! (129/128) ***
 
 但是明明指定了 `--listen 2048`, 看来是没有生效. 最后查看系统配置:
 
