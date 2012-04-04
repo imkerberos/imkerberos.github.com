@@ -8,12 +8,15 @@ category: tutorial
 tags: [Debian, MongoDB, Nginx]
 ---
 
+## 背景
+
 由于前台有数台 Web Server, 用户上传的图片的同步是一个很大的问题, 调查了一下是否存在
 分布式文件系统上, 但是 hadoop 的 HDFS 的 block 大小是 64M, 一个用户的图片撑死也就
 100k左右而已, 所以, 肯定不能使用 HDFS 了, 而且 HDFS 的性能也未必满足实时图片的需要.
 正好前台的数据库是 MongoDB, 所以把图片保存在 MongoDB 的 GridFS 上是一个不错的选择,
 虽然 GridFS 的 chunk 大小是 256K, 浪费一点救浪费一点吧.
 
+## 小折腾
 写了一个脚本和 Web 从 GridFS 里面读取图片返回给前台, 同时写了一个性能测试程序, 发现
 效果不是很好. 100 个并发请求大约需要的时间在 0.5s - 10s 之间. 比用 Apache 进行静态文
 件存储访问还低, 不是很满意.
@@ -147,5 +150,19 @@ tags: [Debian, MongoDB, Nginx]
 `kerberos.png` 是已经传到 gridfs 里面的图片, 这一访问, 居然把 nginx 搞死了一个进程. 看来
 nginx-gridfs 还不是很稳定. 又在 github 上逛了半天, 找到了几个版本:
 
-- https://github.com/viotti/nginx-gridfs/ 号称修复了 replica set 连接的版本
-- 
+* https://github.com/viotti/nginx-gridfs/ 号称修复了 replica set 连接的版本
+
+## 结果
+
+尝试过各种组合, `nginx 0.7.67` + `nginx-gridfs` 和 `nginx 1.0.14` + `nginx-gridfs` 以及 `mongo-c-driver` 始终没有顺利运行起来,
+总结结果如下:
+
+* gridfs 配置不生效, 访问 /image/kerberos.png 没有任何 mongodb 的链接信息, 而是访问到了 nginx 的缺省 root 目录下.
+* 数据库有连接响应, 但是浏览器端一直 reading, 后台的 log 显示 connection droped. 之后的访问不再出现数据库链接信息, 而是直接访问到 nginx 缺省的 root 目录下
+* 后台出现 unknown exception 错误.
+
+## 结论
+
+看起来 nginx-gridfs 不是很稳定, 或许和 nginx, mongo-c-driver 的版本有强烈的依赖关系, 总之不是很好配置. 一直没有成功,
+迫于时间压力, 已经没有时间再折腾了. 即使折腾成功, 从过程来看, 很难让人相信这个 nginx 模块的成熟性和稳定性. 自己平时
+玩玩还可以, 如果放在生产系统上, 肯定让人寝食难安的.
