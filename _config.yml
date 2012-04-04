@@ -40,7 +40,7 @@ auto: true
 #root: /
 permalink: /blog/:year-:month-:day/:title/
 plugins: plugins
-markdown: rdiscount
+markdown: kramdown
 pygments: false # default python pygments have been replaced by pygments.rb
 
 paginate: 8          # Posts per page on the blog index
