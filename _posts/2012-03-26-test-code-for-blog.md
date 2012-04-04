@@ -11,6 +11,9 @@ comments: true
 
 以下是 Python 代码:
 
+{: title="测试Python代码"}
+
+{:.lang-py}
     class AdView (object):
         def __init__ (self, name = None):
             self.name = name
@@ -85,7 +88,7 @@ comments: true
         printf ("Hello World!\n");
     }
 
-以下是 $\exp(-\frac{x^2}{2})$ 代码:
+以下是 LaTex 公式代码:
 {:title="测试 Tex 代码"}
 
 {:.lang-tex}
