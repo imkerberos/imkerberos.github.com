@@ -2,7 +2,7 @@
 layout: post
 title: uwsgi listen queue 队列溢出的问题
 tags: [Debian, Python]
-catgory: tips
+catgory: 小技巧
 ---
 
 今天使用 uWSGI 启动 Python Web应用程序, 使用如下指令:
