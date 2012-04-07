@@ -29,12 +29,19 @@ catgory: 小技巧
     net.core.somaxconn = 128
     error: permission denied on key 'net.ipv4.route.flush'
     error: permission denied on key 'net.ipv6.route.flush'
+    kerberos@avm01:~$ sudo sysctl -a | grep backlog
+    error: permission denied on key 'net.ipv4.route.flush'
+    net.core.netdev_max_backlog = 1000
+    net.ipv4.tcp_max_syn_backlog = 512
+    error: permission denied on key 'net.ipv6.route.flush'
 
 看来是系统 net.core.somaxconn 缺省的 128 限制导致 uWSGI 的 `--listen 2048` 参数没有生效生效. 还好, 编辑 `/etc/sysctl.d/sysctl_kerberos_webapp.conf` :
 
 {: title = "sysctl_kerberos.conf"}
 
     net.core.somaxconn = 2048
+    net.core.netdev_max_backlog = 16384
+    net.ipv4.tcp_max_syn_backlog = 8192
 
 执行命令
 
@@ -45,6 +52,11 @@ catgory: 小技巧
     kerberos@avm01:~$ sudo sysctl -a | grep net.core.somaxconn 
     net.core.somaxconn = 2048
     error: permission denied on key 'net.ipv4.route.flush'
+    net.core.netdev_max_backlog = 16384
+    net.ipv4.tcp_max_syn_backlog = 8192
     error: permission denied on key 'net.ipv6.route.flush'
 
 已经生效, 并且在 Debian 上开机会自动生效. 
+
+somaxconn 是指在一个端口号上的最大侦听队列. 在 wWSGI 上的配置超过 `8192` 是没有意义的, 即使超过 `8192`, uWSgI 最大也就使用 8192, uWSGI 的源代码中看到的. 也不排除以后会修改的可能. 另外, 这个值主要是由于 tcp 的 sack 值引起的, 或许关闭 `net.ipv4.tcp_sack` 和 `net.ipv4.tcp.dsak` 会有效果, 不过我没有实验.
+
