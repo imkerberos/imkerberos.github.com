@@ -26,7 +26,7 @@ Kerberos Zhang
 
 ### 语言技能
 
-- C & C++
+- C & Objective-C
 - Python
 - Lua
 
