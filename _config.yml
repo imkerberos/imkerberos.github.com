@@ -41,7 +41,7 @@ auto: true
 #root: /
 permalink: /blog/:year-:month-:day/:title/
 plugins: plugins
-markdown: kramdown
+markdown: maruku
 lsi: false
 pygments: true# default python pygments have been replaced by pygments.rb
 
