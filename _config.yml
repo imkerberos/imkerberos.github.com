@@ -4,7 +4,7 @@ permalink: /:categories/:year/:month/:day/:title
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 auto: true
-markdown: redcarpet
+markdown: kramdown #redcarpet
 pygments: true
 
 # Themes are encouraged to use these universal variables 
@@ -84,7 +84,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : jekyllbootstrap
+      short_name : imkerberos
     livefyre :
       site_id : 123
     intensedebate :
