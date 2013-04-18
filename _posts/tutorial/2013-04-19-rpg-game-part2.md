@@ -1,6 +1,7 @@
 ---
 layout: post
 title: iPhone 上 RPG 游戏的设计和实现 (2)
+published: false
 tags: [Game, Cocos2d, RPG, Design]
 catogory: 教程
 ---
