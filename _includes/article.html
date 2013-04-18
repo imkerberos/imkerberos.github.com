@@ -29,8 +29,5 @@
     </footer>
   {% endif %}
 {% else %}
-    <div class="entry-content">{{ content | split: '<!--more-->' | first }}</div>
-    <footer>
-      <a rel="full-article" href="{{ root_url }}{{ post.url }}">{{ site.excerpt_link }}</a>
-    </footer>
+    <div class="entry-content">{{ content }}</div>
 {% endif %}
