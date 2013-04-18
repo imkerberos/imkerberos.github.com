@@ -12,11 +12,8 @@ Feature
 - Archives and Tags only depends `Liquid` template instead of plugin.
 - google-code-prettify for code hilight.
 
-Test
-----
+Changelog
+---------
 
-```ruby
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
-```
+- 2013/04/15 Fixed build error for github. github upgrade jekyll version to 0.12 which drop date\_to\_string filter.
+
