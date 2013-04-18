@@ -5,7 +5,6 @@ tags: [Game, Cocos2d, RPG, Design]
 catogory: 教程
 ---
 
-
 准备做一个 RPG 的游戏。由于以前没有做过游戏，首先学习了 cocos2d-iphone 的一些资料，再从网上看了一些写游戏
 的教程，自认为可以动手开始写框架的时候，发现遇到了相当大的困难。
 

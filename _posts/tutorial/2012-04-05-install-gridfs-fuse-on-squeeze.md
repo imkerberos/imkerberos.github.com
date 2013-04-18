@@ -1,11 +1,13 @@
 ---
 layout: post
 title: 在 Debian 6.0 上安装 MongoDB gridfs-fuse
-desc: nginx-gridfs 不是很稳定, 在前一段时间折腾了几次都没有成功. 最近经过查询资料, 发现可
-    以使用 fuse 模块来把 gridfs 做成文件系统, 而且性能要比 nginx-gridfs 高得多. 
 category: tutorial
 tags: [Debian, MongoDB]
 ---
+nginx-gridfs 不是很稳定, 在前一段时间折腾了几次都没有成功. 最近经过查询资料, 发现可
+    以使用 fuse 模块来把 gridfs 做成文件系统, 而且性能要比 nginx-gridfs 高得多. 
+
+<!--more-->
 
 从 [CoffeePowered]() 上发现了一篇 GridFS 的三种方式的性能测试文章, 由于我的 nginx-gridfs 
 一直没有配置成功, 无法得出数据, 这里只好引用一下:
