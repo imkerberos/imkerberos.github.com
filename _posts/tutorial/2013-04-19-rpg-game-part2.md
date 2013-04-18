@@ -59,13 +59,12 @@ OO 不是一切, OO 也不是一无是处.
 
 拿上面的刮胡刀(暂定名称)来说,它具有大哥大的外观,刮胡子的功能. 假如我们用 OO 的概念来定义的话, 它到底是什么? 大哥大亦或是刮胡刀? 两者都不是.我们唯一确定的就是, 它是一个"存在".:)
 
-    ``` C++
+    {:.lang-cpp}
     class Mysticism : public Object {
     public:
         Aspect* aspect = new Aspect("大哥大");
         Function* function = new Function("刮胡子");
-    }
-    ```
+    };
 
 也许这样更准确一些.
 
