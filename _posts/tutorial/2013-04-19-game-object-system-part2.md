@@ -1,8 +1,8 @@
 ---
 layout: post
-title: iPhone 上 RPG 游戏的设计和实现 (2)
+title: 游戏对象模型设计与实现(2)
 published: true
-tags: [Game, Cocos2d, RPG, Design]
+tags: [Game, Design, Architecture]
 catogory: 教程
 ---
 
