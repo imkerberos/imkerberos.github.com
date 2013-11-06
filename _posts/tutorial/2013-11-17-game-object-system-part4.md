@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 游戏对象模型设计与实现(4)
-published: false
+published: true
 tags: [Game, Design, Architecture]
 catogory: 教程
 ---
