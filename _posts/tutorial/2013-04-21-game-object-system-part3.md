@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 游戏对象模型设计与实现(3)
-published: false
+published: true
 tags: [Game, Design, Architecture]
 catogory: 教程
 ---
@@ -54,3 +54,13 @@ catogory: 教程
   - 设计模式简单.
   - 运行期计算量比较大, 需要做一些优化.
   - 调试不方便.
+
+对于 Component-Based 应用最广泛和成功的应该就是 `Unity3D` 了, 我对 `Unity3D` 不了解, 没有多少发言权,
+但是其广泛的应用证明了这种设计的合理性. 一直想研究一下, 但是手头有一些程序要写, 也没有太多时间. 最近
+主要的精力放在了 Entity-System 上.
+
+Entity-System 的一些资料主要来源于 [Adam's Blog][] 上一些资料, 另外根据这些资料, 有人做了 [Artemis][]
+这个开源的框架. 下一章的内容主要关注在 Entity-System 上.
+
+[Adam's Blog]: http://t-machine.org/ "Adam's Blog"
+[Artemis]: http://gamadu.com/artemis/ "Artemis"
