@@ -60,31 +60,31 @@ macbook467 是 64 位的机器。另外根据调查资料说：BootCamp (驱动)
 好吧，看来不行，难道在 10.9 上制作的 EFI 引导文件有问题，于是我到网上搜索资料，找到一篇帖子，是修改 `BootCamp` 制作 U 盘的，网址在这里[Windows 8 on old MacBook](http://blog.mdstn.com/windows-8-on-old-macbook/): 。重新制作 U 盘，启动，还是老样子，只有一个无法启动的 `EFI` 额外启动选项。贴一下脚本:
 
 ```
-BACKUP_DIR="." # Where the backup of "Boot Camp Assistant" exist  
-UTILITIES_DIR="/Applications/Utilities"  
-TEMP_DIR="/tmp"
+    BACKUP_DIR="." # Where the backup of "Boot Camp Assistant" exist  
+    UTILITIES_DIR="/Applications/Utilities"  
+    TEMP_DIR="/tmp"
 
-PLIST="Info.plist"
+    PLIST="Info.plist"
 
-APP="Boot Camp Assistant.app" # (editable) The name of "Boot Camp Assistant"  
-APP_CONTENTS="$APP/Contents"  
-APP_PLIST="$APP_CONTENTS/$PLIST"
+    APP="Boot Camp Assistant.app" # (editable) The name of "Boot Camp Assistant"  
+    APP_CONTENTS="$APP/Contents"  
+    APP_PLIST="$APP_CONTENTS/$PLIST"
 
-ModelIdentifierMajor="MacBook5" # (editable) Model Name with a version major number and without minor number (not: 5,1; but: 5)  
-ModelIdentifier="MacBook5,1" # (editable) Model Identifier  
-k="MB51.007D.B03" # (editable) Boot ROM Version
+    ModelIdentifierMajor="MacBook5" # (editable) Model Name with a version major number and without minor number (not: 5,1; but: 5)  
+    ModelIdentifier="MacBook5,1" # (editable) Model Identifier  
+    k="MB51.007D.B03" # (editable) Boot ROM Version
 
-echo "$APP_PLIST"
+    echo "$APP_PLIST"
 
 # cp "Boot Camp Assistant" to temporary dir
-if [ -d "$TEMP_DIR/$APP" ]  
-then  
-    rm -rf "$TEMP_DIR/$APP"
-fi  
-cp -R "$BACKUP_DIR/$APP" "$TEMP_DIR"
+    if [ -d "$TEMP_DIR/$APP" ]  
+    then  
+        rm -rf "$TEMP_DIR/$APP"
+    fi  
+    cp -R "$BACKUP_DIR/$APP" "$TEMP_DIR"
 
 # read out the plist
-defaults read "$TEMP_DIR/$APP_PLIST"
+    defaults read "$TEMP_DIR/$APP_PLIST"
 
 # edits
 # defaults write "$TEMP_DIR/$APP_PLIST" DARequiredROMVersions -array-add "$BootROMVersion"
@@ -94,26 +94,26 @@ defaults read "$TEMP_DIR/$APP_PLIST"
 # defaults write "$TEMP_DIR/$APP_PLIST" Win7OnlyModels -array-add "$ModelIdentifier"
 # defaults rename "$TEMP_DIR/$APP_PLIST" PreUSBBootSupportedModels USBBootSupportedModels
 
-defaults write "$TEMP_DIR/$APP_PLIST" DARequiredROMVersions -array-add "$BootROMVersion"  
-defaults write "$TEMP_DIR/$APP_PLIST" PreESDRequiredModels -array-add $ModelIdentifierMajor  
-defaults write "$TEMP_DIR/$APP_PLIST" PreUEFIModels -array-add $ModelIdentifierMajor  
-defaults write "$TEMP_DIR/$APP_PLIST" PreUSBBootSupportedModels -array "$ModelIdentifier" "MacBookAir3,2" "MacBookPro8,3" "MacPro5,1" "Macmini4,1" "iMac12,2"  
-defaults rename "$TEMP_DIR/$APP_PLIST" PreUSBBootSupportedModels USBBootSupportedModels  
-defaults delete "$TEMP_DIR/$APP_PLIST" Win7OnlyModels
+    defaults write "$TEMP_DIR/$APP_PLIST" DARequiredROMVersions -array-add "$BootROMVersion"  
+    defaults write "$TEMP_DIR/$APP_PLIST" PreESDRequiredModels -array-add $ModelIdentifierMajor  
+    defaults write "$TEMP_DIR/$APP_PLIST" PreUEFIModels -array-add $ModelIdentifierMajor  
+    defaults write "$TEMP_DIR/$APP_PLIST" PreUSBBootSupportedModels -array "$ModelIdentifier" "MacBookAir3,2" "MacBookPro8,3" "MacPro5,1" "Macmini4,1" "iMac12,2"  
+    defaults rename "$TEMP_DIR/$APP_PLIST" PreUSBBootSupportedModels USBBootSupportedModels  
+    defaults delete "$TEMP_DIR/$APP_PLIST" Win7OnlyModels
 
 # sudo codesign
-sudo codesign -fs - "$TEMP_DIR/$APP"
+    sudo codesign -fs - "$TEMP_DIR/$APP"
 
 # Kill Boot Camp Assistant if it's running before replacing the modified
-ps aux | grep Boot\ Camp | grep -v grep | awk '{print $2}' | xargs kill -9  
+    ps aux | grep Boot\ Camp | grep -v grep | awk '{print $2}' | xargs kill -9  
 # replace "Boot Camp Assistemp" from Utilities folder
-sudo rm -rf "$UTILITIES_DIR/$APP"  
-sudo mv "$TEMP_DIR/$APP" "$UTILITIES_DIR"
+    sudo rm -rf "$UTILITIES_DIR/$APP"  
+    sudo mv "$TEMP_DIR/$APP" "$UTILITIES_DIR"
 
 # read out the "Boot Camp Assistant" plist from Utilities folder
-sudo defaults read "$UTILITIES_DIR/$APP_PLIST"
+    sudo defaults read "$UTILITIES_DIR/$APP_PLIST"
 
-sudo open "$UTILITIES_DIR/$APP"  
+    sudo open "$UTILITIES_DIR/$APP"  
 ```
 
 时候猜想：可能因为我是在我的 MBP 15 Retina 上做的启动盘，先在 MB467 上安装 OS X 10.8.3 再用上面的脚本制作 U 盘启动盘可能好用，（上面的脚本是修改 BootCamp，使之可以在 MB467 上制作 Windows8  启动盘），有试过的同学可以告诉我结果。
