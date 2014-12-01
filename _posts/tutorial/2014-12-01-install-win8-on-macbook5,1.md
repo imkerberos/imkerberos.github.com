@@ -24,8 +24,8 @@ catogory: 教程
 - 光驱: 拆了，换成硬盘位，后来升级成了 Intel SSD 160GB
 - 显卡: nVidia GeForce 9400M ? 记不清了，貌似是这个。
 
-现有系统: Windows7 Thin PC 32 位 （单系统）
-目标系统: Windows 8.1 Update 64位 （单系统）
+- 现有系统: Windows7 Thin PC 32 位 （单系统）
+- 目标系统: Windows 8.1 Update 64位 （单系统）
 
 为什么选择 Windows8.1 呢，据说 Windows 8.1 比 Windows7 快，而且硬盘占用少。另外觉得 Windows7 长得丑..
 macbook467 是 64 位的机器。另外根据调查资料说：BootCamp (驱动) 部分对于 Windows8 只支持 64 位。
