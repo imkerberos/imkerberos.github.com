@@ -58,7 +58,7 @@ macbook467 是 64 位的机器。另外根据调查资料说：BootCamp (驱动)
 因为 MB467 是 Win7 ThinPC 单系统，所以没法用 BootCamp 制作启动 U 盘，所以在另外我得 MBP 15 Retina (10.9) 上制作 U 盘启动盘。到下载驱动的步骤 Cancel 掉操作 (因为这个过程是下载 MBP 的驱动，对 MB467 来说没有用处)。在 MBP 15 Retina 上测试 U 盘能否启动，reboot, 按住 Option， 成功出现了 `Windows` 和 `EFI` 两个额外的启动选项，选择 `Windows`，成功进入了  `Windows 8.1` 的安装界面。再把U盘插到 MB467 上，按住 Option 键启动，悲剧，居然只有 `EFI` 选项。选择 `EFI` 之后，U 盘灯长亮，几分钟以后没反应了，没启动.....
 
 好吧，看来不行，难道在 10.9 上制作的 EFI 引导文件有问题，于是我到网上搜索资料，找到一篇帖子，是修改 `BootCamp` 制作 U 盘的，网址在这里[Windows 8 on old MacBook](http://blog.mdstn.com/windows-8-on-old-macbook/): 。重新制作 U 盘，启动，还是老样子，只有一个无法启动的 `EFI` 额外启动选项。贴一下脚本:
-```
+
     BACKUP_DIR="." # Where the backup of "Boot Camp Assistant" exist  
     UTILITIES_DIR="/Applications/Utilities"  
     TEMP_DIR="/tmp"
@@ -113,7 +113,6 @@ macbook467 是 64 位的机器。另外根据调查资料说：BootCamp (驱动)
     sudo defaults read "$UTILITIES_DIR/$APP_PLIST"
 
     sudo open "$UTILITIES_DIR/$APP"  
-```
 
 时候猜想：可能因为我是在我的 MBP 15 Retina 上做的启动盘，先在 MB467 上安装 OS X 10.8.3 再用上面的脚本制作 U 盘启动盘可能好用，（上面的脚本是修改 BootCamp，使之可以在 MB467 上制作 Windows8  启动盘），有试过的同学可以告诉我结果。
 
