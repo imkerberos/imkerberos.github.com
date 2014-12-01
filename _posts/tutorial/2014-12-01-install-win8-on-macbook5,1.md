@@ -15,14 +15,14 @@ catogory: 教程
 
 我的 Macbook467 的配置:
 
-俗称: Macbook 467
-官方名称: MacBook (13-inch, Aluminum, Late 2008)
-型号代码: macbook5,1
-内存: 2GB, 后来升级到了 4GB
-硬盘: 500GB, 后来升级到了 Intel SSD 80GB
-光驱: 拆了，换成硬盘位，后来升级成了 Intel SSD 160GB
-显卡: nVidia GeForce 9400M ? 记不清了，貌似是这个。
-CPU: Intel Core 2 Duo 2.4G
+- 俗称: Macbook 467
+- 官方名称: MacBook (13-inch, Aluminum, Late 2008)
+- 型号代码: macbook5,1
+- CPU: Intel Core 2 Duo 2.4G
+- 内存: 2GB, 后来升级到了 4GB
+- 硬盘: 500GB, 后来升级到了 Intel SSD 80GB
+- 光驱: 拆了，换成硬盘位，后来升级成了 Intel SSD 160GB
+- 显卡: nVidia GeForce 9400M ? 记不清了，貌似是这个。
 
 现有系统: Windows7 Thin PC 32 位 （单系统）
 目标系统: Windows 8.1 Update 64位 （单系统）
