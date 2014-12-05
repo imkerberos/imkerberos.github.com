@@ -2,7 +2,7 @@
 layout: post
 title: Haiku/BeOS 中的 Universal Binary
 tags: [haiku, kernel]
-published: false
+published: true
 catogory: Haiku
 ---
 
