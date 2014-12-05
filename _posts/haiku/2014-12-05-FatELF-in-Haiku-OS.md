@@ -37,7 +37,7 @@ Universal Binary 的原理很简单：实际上的实现是多个程序文件打
 成一个文件，不就也成为 Universal Binary 文件了么？ 答案是肯定的，只需要我们设计一种文件格式包含
 多种 `ELF` 文件，并且分别记录这些 `ELF` 文件可运行的条件即可。
 
-已经有人设计出了这种文件，这就是 `FatELF`。[`FatELF: Universal Binaries for Linux.`](http://icculus.org/fatelf/)
+已经有人设计出了这种文件，这就是 `FatELF`。[FatELF: Universal Binaries for Linux.](http://icculus.org/fatelf/)
 
 ## 实现 FatELF 需要哪些工作
 
@@ -55,6 +55,6 @@ Landonf 通过对 `Haiku` 的内核部分打补丁可以支持这种文件。
 
 ## 参考资料
 
-- [`FatELF`] (http://icculus.org/fatelf/)
-- [`FatELF Toolchain Drivers`](http://landonf.bikemonkey.org/2012/12/index.html)
+- [FatELF](http://icculus.org/fatelf/)
+- [FatELF Toolchain Drivers](http://landonf.bikemonkey.org/2012/12/index.html)
 
