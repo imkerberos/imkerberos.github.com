@@ -55,6 +55,6 @@ Landonf 通过对 `Haiku` 的内核部分打补丁可以支持这种文件。
 
 ## 参考资料
 
-- [FatELF](http://icculus.org/fatelf/)
+- [FatELF](http://icculus.org/fatelf)
 - [FatELF Toolchain Drivers](http://landonf.bikemonkey.org/2012/12/index.html)
 
