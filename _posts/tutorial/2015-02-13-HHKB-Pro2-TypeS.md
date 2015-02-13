@@ -19,6 +19,7 @@ HHKB 配合 Karambiner 还是比较好用的.
 DIP 开关: 010001
 
 Karabiner 映射:
+
 - Command_R to Option_R
 - Option_R to Control_R
 - Shift_L to Shift_L (+ when only Shift_L send Capslock)
