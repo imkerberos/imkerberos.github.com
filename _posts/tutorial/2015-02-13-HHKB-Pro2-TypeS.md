@@ -32,7 +32,6 @@ Karabiner 映射:
 打开 Karabiner 的 配置的 `Misc & Uninstall` 选项卡, 选择 `Open private.xml`, 在 Finder 中
 会显示 Private.xml 的自定义配置文件, 修改这个文件, 改成如下内容
 
-    ```xml
     <?xml version="1.0"?>
     <root>
     <item>
@@ -42,7 +41,6 @@ Karabiner 映射:
         <autogen>__KeyOverlaidModifier__ KeyCode::CONTROL_L, KeyCode::CONTROL_L, KeyCode::CAPSLOCK</autogen>
     </item>
     </root>
-    ```
 
 退出 Karabiner 再重新启动, 在 `Change Key` 的选项卡中的第一项就出现 `Control_L` 映射成 Control_L + CapsLock 的选单了.
 
